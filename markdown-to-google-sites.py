@@ -17,10 +17,10 @@ class ReplaceCodeBlocksTreeprocessor(markdown.treeprocessors.Treeprocessor):
     """ Replace <pre><code> blocks with additional HTML to help Google Sites
         apply its "Blockquote Code" style." """
     def run(self, root):
-        self.replace_code_blogs(root)
+        self.replace_code_blocks(root)
         return root
 
-    def replace_code_blogs(self, element):
+    def replace_code_blocks(self, element):
         blocks = element.getiterator('pre')
         for block in blocks:
             children = block.getchildren()
