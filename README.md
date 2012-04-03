@@ -3,7 +3,6 @@ This is a ruby script that reads in a markdown file and converts it to html. The
 
 # Installing
 
-1. Clone this git repository
+1. `git clone git@github.com:jamesrz2live/markdown-to-google-sites.git`
 2. `rake`
-3. `chmod +x md2html.rb`
-4. Enjoy
+3. Enjoy

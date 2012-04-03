@@ -4,5 +4,6 @@ task :gems do
 end
 
 task :default => [:gems] do
+	`chmod +x md2html.rb`
 	puts "Finished."
 end
