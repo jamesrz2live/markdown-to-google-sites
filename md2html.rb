@@ -15,6 +15,9 @@ def markdownToHtml(inputFile, outputFile)
 	File.open(outputFile, "w") { |f| f << BlueCloth.new(src).to_html() }
 end
 
+# TODO: instead of doing this, find another markdown gem that lets
+# me extend html generation and have it add the google sites attributes
+# as it generates the html.
 def addGoogleSitesAttributes(htmlFile)
 	html = Nokogiri::HTML(File.open(htmlFile, "r").read())
 	html.xpath('//pre').each { |p| p['class'] = "sites-codeblock sites-codesnippet-block" }
