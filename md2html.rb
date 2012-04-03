@@ -17,7 +17,7 @@ end
 
 def addGoogleSitesAttributes(htmlFile)
 	html = Nokogiri::HTML(File.open(htmlFile, "r").read())
-	html.xpath('//pre').each { |preTag| preTag['class'] = "sites-codeblock sites-codesnippet-block" }
+	html.xpath('//pre').each { |p| p['class'] = "sites-codeblock sites-codesnippet-block" }
 	File.open(htmlFile, "w") { |f| f << html.to_html() }
 end
 
