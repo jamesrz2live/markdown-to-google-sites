@@ -6,7 +6,7 @@ require 'trollop'
 require 'bluecloth'
 require 'nokogiri'
 
-REQUIRE_MD_ARG = false
+REQUIRE_MD_ARG = true
 DEBUG_MD_FILE = "mdtest.md"
 
 def markdownToHtml(inputFile, outputFile)
@@ -23,17 +23,17 @@ end
 
 # define and parse command line arguments
 args = Trollop::options do 
-	opt :md, "Input file", :type => :string, :required => REQUIRE_MD_ARG
-	opt :html, "Output file", :type => :string
+	opt :in, "Input file", :type => :string, :required => REQUIRE_MD_ARG
+	opt :out, "Output file", :type => :string
 end
-args[:md] = DEBUG_MD_FILE if args[:md].nil?
+args[:in] = DEBUG_MD_FILE if args[:in].nil?
 
 # determine output file name
-outputFile = args[:html]
-outputFile = "#{args[:md]}.html" if outputFile.nil?
+outputFile = args[:out]
+outputFile = "#{args[:in]}.html" if outputFile.nil?
 
 # md => html
-markdownToHtml(args[:md], outputFile);
+markdownToHtml(args[:in], outputFile);
 
 # add google-sites attributes to <pre> tags
 addGoogleSitesAttributes(outputFile);
