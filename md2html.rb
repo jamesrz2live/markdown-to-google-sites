@@ -23,6 +23,7 @@ end
 
 # define and parse command line arguments
 args = Trollop::options do 
+	banner "Utility that converts markdown to html formatted for google sites' stylesheet."
 	opt :in, "Input file", :type => :string, :required => REQUIRE_IN_ARG
 	opt :out, "Output file", :type => :string
 end
