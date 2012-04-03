@@ -6,8 +6,8 @@ require 'trollop'
 require 'bluecloth'
 require 'nokogiri'
 
-REQUIRE_MD_ARG = true
-DEBUG_MD_FILE = "mdtest.md"
+REQUIRE_IN_ARG = true
+DEBUG_SRC_FILE = "mdtest.md"
 
 def markdownToHtml(inputFile, outputFile)
 	puts "#{inputFile} => #{outputFile}"
@@ -23,10 +23,10 @@ end
 
 # define and parse command line arguments
 args = Trollop::options do 
-	opt :in, "Input file", :type => :string, :required => REQUIRE_MD_ARG
+	opt :in, "Input file", :type => :string, :required => REQUIRE_IN_ARG
 	opt :out, "Output file", :type => :string
 end
-args[:in] = DEBUG_MD_FILE if args[:in].nil?
+args[:in] = DEBUG_SRC_FILE if args[:in].nil?
 
 # determine output file name
 outputFile = args[:out]
